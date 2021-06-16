@@ -1,0 +1,663 @@
+{
+	"info": {
+		"_postman_id": "5fbe0577-ba19-47e6-84e3-707d0c28dba9",
+		"name": "Challenge-Node",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Actor",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Rami\",\r\n    \"surname\": \"Malek\",\r\n    \"country\": \"Estados Unidos\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/actor",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"actor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/actor",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"actor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/actor/60ca3e7d6d6f021f30992975",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"actor",
+								"60ca3e7d6d6f021f30992975"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let token = pm.response.json().token\r",
+									"if( token )\r",
+									"    pm.environment.set(\"token\", token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"ignaciospst@gmail.com\",\r\n    \"name\": \"Ignacio\",\r\n    \"password\": \"Password\",\r\n    \"surname\": \"Esposto\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/auth/create",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let token = pm.response.json().token\r",
+									"if( token )\r",
+									"    pm.environment.set(\"token\", token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"ignaciospst@gmail.com\",\r\n    \"password\": \"Password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/auth",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"auth"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Renew Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let token = pm.response.json().token\r",
+									"if( token )\r",
+									"    pm.environment.set(\"token\", token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/auth",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"auth"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Director",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Sam\",\r\n    \"surname\": \"Esmail\",\r\n    \"country\": \"United States\",\r\n    \"image\": \"imagen.jpg\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/director",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"director"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/director",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"director"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/director/60ca40aa6d6f021f3099297b",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"director",
+								"60ca40aa6d6f021f3099297b"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Movie",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Men in black\",\r\n    \"director\": \"60ca433bf8ca1524bc3b9d8f\",\r\n    \"duration\": \"113\",\r\n    \"actors\": [\"60ca3e7d6d6f021f30992975\"],\r\n    \"genre\": \"action\",\r\n    \"year\": 1997\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/movie",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"movie"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/movie?order=-1&limit=10&skip=0",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"movie"
+							],
+							"query": [
+								{
+									"key": "genre",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": "The",
+									"disabled": true
+								},
+								{
+									"key": "year",
+									"value": "1990",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "year",
+									"disabled": true
+								},
+								{
+									"key": "order",
+									"value": "-1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "skip",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/movie/60ca41eaf3b4d12334728bf3",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"movie",
+								"60ca41eaf3b4d12334728bf3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TvShow",
+			"item": [
+				{
+					"name": "Tvshow",
+					"item": [
+						{
+							"name": "Create",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Mr Robot\",\r\n    \"director\": \"60ca445bf8ca1524bc3b9d92\",\r\n    \"year\": 2015,\r\n    \"summary\": \"'Mr. Robot' follows Elliot (Rami Malek), a young programmer who works as a cyber-security engineer by day and a vigilante hacker by night. Elliot finds himself at a crossroads when the mysterious leader (Christian Slater) of an underground hacker group recruits him to destroy the corporation he is paid to protect.\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/tvshow",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"tvshow"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{base_url}}/api/tvshow",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"tvshow"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get By Id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{base_url}}/api/tvshow/60ca4527f8ca1524bc3b9d94",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"tvshow",
+										"60ca4527f8ca1524bc3b9d94"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Season",
+					"item": [
+						{
+							"name": "Create",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Season 1\",\r\n    \"number\": \"1\",\r\n    \"tvshow\": \"60ca4527f8ca1524bc3b9d94\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/season",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"season"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{base_url}}/api/season",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"season"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get By Id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{base_url}}/api/season/60ca458ef8ca1524bc3b9d95",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"season",
+										"60ca458ef8ca1524bc3b9d95"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Episode",
+					"item": [
+						{
+							"name": "Create",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"1. eps1.0_hellofriend.mov\",\r\n    \"number\": \"1\",\r\n    \"season\": \"60ca458ef8ca1524bc3b9d95\",\r\n    \"tvshow\": \"60ca4527f8ca1524bc3b9d94\",\r\n    \"duration\": \"64\",\r\n    \"actors\": \"60ca45faf8ca1524bc3b9d96\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/episode",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"episode"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{base_url}}/api/episode",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"episode"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get By Id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{base_url}}/api/episode/60ca460ef8ca1524bc3b9d97",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"episode",
+										"60ca460ef8ca1524bc3b9d97"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
