@@ -2,7 +2,7 @@
 
 Clone or download the repository and install the dependencies, the application connects to a TestUser in MongoDB-Atlas.
 
-You can import Challenge-Node.postman_collection.json in Postmant
+You can import Challenge-Node.postman_collection.json in Postman
 
 
 ## Endpoints
